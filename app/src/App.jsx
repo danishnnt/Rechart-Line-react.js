@@ -42,7 +42,7 @@ const App = () => {
         filtered = data; 
         break;
       default:
-        filtered = [data];
+        filtered = data;
         break;
     }
     setFilteredData(filtered);
