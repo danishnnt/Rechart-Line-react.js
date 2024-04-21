@@ -34,18 +34,15 @@ const App = () => {
     switch (timeframe) {
       case '7':
         filtered = data?.slice(0, 7); 
-        console.log("filtered 7")
         break;
       case '15':
         filtered = data?.slice(0, 15); 
-        console.log("filtered 15")
         break;
       case '30':
         filtered = data; 
-        console.log("filtered 30")
         break;
       default:
-        filtered = [];
+        filtered = [data];
         break;
     }
     setFilteredData(filtered);
@@ -65,6 +62,7 @@ const App = () => {
         <div><h2>Graph Widget</h2></div>
         <div>
         <select value={selectedTimeframe} onChange={handleTimeframeChange}>
+          <option value="start">Select Timeframe</option>
           <option value="7" >Last 7 Days</option>
           <option value="15" >Last 15 Days</option>
           <option value="30" >Last 30 Days</option>
@@ -72,7 +70,7 @@ const App = () => {
         </div>
         </div>
       <Container>
-      <Graph data={data}  />
+      <Graph data={filteredData}  />
     </Container>
       </OuterMain>
     </Main>
